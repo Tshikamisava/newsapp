@@ -11,7 +11,9 @@ const api = axios.create({
 const apiKey= '?country=us&apiKey=dbf21ffac9124dc1be6b6d1eed896489';
 
 const getTopHeadline= () => api.get('/top-headlines'+apiKey)
+const getByCategory=(category)=>api.get('/everything?q='+category+"&apiKey=dbf21ffac9124dc1be6b6d1eed896489")
 
 export default{
-    getTopHeadline
+    getTopHeadline,
+    getByCategory
 }

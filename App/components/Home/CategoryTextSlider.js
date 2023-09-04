@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Color from '../../Shared/Color'
 
-function CategoryTextSlider() {
+function CategoryTextSlider({selectCategory}) {
     
     const [active, setActive]=useState(1)
     const categoryList = [
@@ -41,7 +41,8 @@ function CategoryTextSlider() {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             renderItem={({item})=>(
-                <TouchableOpacity onPress={()=>onCategoryClick(item.id)}>
+                <TouchableOpacity onPress={()=>{onCategoryClick(item.id);
+                selectCategory(item.name) }}>
                     <Text style={item.id==active?styles.selectText 
                         :styles.unselectText}>{item.name}</Text>
                 </TouchableOpacity>
